@@ -8,4 +8,69 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: black;
+}
+
+:root {
+  --x: 0;
+  --y: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+
+.box {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.box h1 {
+  padding-left: 4rem;
+  color: white;
+  width: 20vw;
+  font-size: clamp(6rem, 7vw, 10rem);
+  font-weight: 700;
+}
+.box .video-wraper {
+  width: 45vw;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.box .video-wraper video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.box .video-wraper:hover video {
+  opacity: 1;
+}
+.box .video-wraper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 0;
+  background: radial-gradient(240px at var(--x) var(--y), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+  transition: opacity 0.15s ease, background 0.06s linear;
+}
+.box .video-wraper:hover::before {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

@@ -8,4 +8,171 @@ html,
 body {
   height: 100%;
   width: 100%;
+  background: black;
+}
+
+
+// custom css variable
+// :root {
+
+//   --x: 0;
+//   --y: 0;
+// }
+
+
+// .box {
+
+
+
+//   height: 100vh;
+//   width: 100vw;
+
+//   // background:radial-gradient(150px at var(--x) var(--y),rgba(255,255,255,0),rgb(0,0,0,0.87));
+//   display: flex;
+//   // padding: 20px;
+//   justify-content:space-between;
+//   align-items: center;
+//   // gap: 2rem;
+//   overflow: hidden;
+
+//   h1 {
+//     padding-left: 4rem;
+//     color: white;
+//     width:20vw;
+//   //  font-size: 9rem;
+//     font-size:10rem;
+//     background-color: red;
+//     line-height: 1.2;
+//     font-weight: 450;
+
+   
+    
+
+
+//   }
+
+//   .video-wraper {
+//   width: 45vw;
+//   height: 100%;
+//   position: relative;
+//   overflow: hidden;
+// }
+
+//   .video-wraper::before {
+
+//    content: "";
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   inset: 0;
+//   pointer-events: none;
+//   background: radial-gradient(250px at var(--x) var(--y),rgba(255, 255, 255, 0),rgba(0, 0, 0, x1));
+// border: 2px solid white;
+//   z-index: 2;
+//     // position:relative;
+
+
+
+
+//     #wickvideo {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+    
+//       z-index: 1;
+       
+     
+     
+
+//     }
+
+
+
+   
+
+
+//   }
+// }
+
+
+
+
+
+
+
+:root {
+  --x: 0;
+  --y: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: black;
+}
+
+.box {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  h1 {
+    padding-left: 4rem;
+    color: white;
+    width: 20vw;
+    font-size: clamp(6rem, 7vw, 10rem);
+    font-weight: 700;
+  }
+
+  .video-wraper {
+    width: 45vw;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  
+
+    // 🎯 Video Reveal only on hover
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      position: absolute;
+      opacity: 0; 
+      transition: opacity 0.25s ease;
+    }
+
+    &:hover video {
+      opacity: 1;
+    }
+
+    // 💙 John Wick Neon Spotlight
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      // pointer-events: none;
+      opacity: 0; 
+      background: radial-gradient(
+        240px at var(--x) var(--y),
+        rgba(255, 255, 255, 0),
+        rgba(0, 0, 0, 0.8) 
+      );
+      transition: opacity 0.15s ease, background 0.06s linear;
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+  }
 }
