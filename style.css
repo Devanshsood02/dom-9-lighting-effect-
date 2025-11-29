@@ -28,6 +28,10 @@ html, body {
   background: black;
 }
 
+body {
+  background: repeating-linear-gradient(45deg, rgba(255, 0, 0, 0.15) 0px, rgba(255, 0, 0, 0.15) 2px, rgb(0, 0, 0) 4px), #000;
+}
+
 .box {
   height: 100vh;
   width: 100vw;
@@ -35,13 +39,23 @@ html, body {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  animation: bloodPulse 2s infinite alternate ease-in-out;
+}
+@keyframes bloodPulse {
+  0% {
+    background: radial-gradient(circle at center, #1a0000 0%, #000000 70%);
+  }
+  100% {
+    background: radial-gradient(circle at center, #4b0000 0%, #000000 70%);
+  }
 }
 .box h1 {
   padding-left: 4rem;
   color: white;
-  width: 20vw;
-  font-size: clamp(6rem, 7vw, 10rem);
+  width: 40vw;
+  font-size: 6rem;
   font-weight: 700;
+  text-shadow: 0 0 15px red, 0 0 25px crimson;
 }
 .box .video-wraper {
   width: 45vw;
@@ -52,8 +66,8 @@ html, body {
 .box .video-wraper video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   z-index: 1;
   position: absolute;
   opacity: 0;
